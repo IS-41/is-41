@@ -9,7 +9,7 @@ class db {
 		if(!$this->connection) {
 			echo('No connection with database');
 		}
-		}
+		
 		
 		return $this->connection;
 	}

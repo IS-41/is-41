@@ -4,7 +4,9 @@ include 'config.php';
 		include '/classes/'.$var.'.php';
 	}
 	
-	
+$db = new db(HOST,USER,PASS,DB);
+echo $post = $db->query("SELECT * FROM user");
+
 $TestPage = new OnePage('Работает!');
 echo $TestPage->test;
 
