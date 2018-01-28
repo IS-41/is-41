@@ -1,25 +1,40 @@
 
 <?php
 class db {
-	public function connection () {
+ public $connection;
 
-	}
-} 
-?>
-=======
-<?php 
-	/**
-	* Наш первый класс
-	*/
-	class ClassName extends AnotherClass
-	{
-		public $k = "Здорово!";
-		function super()
-		{
-			$this->k = "Просто супер!":
+	public function __construct($host,$user,$pass,$db) {
+		$this->connection = new mysqli($host,$user,$pass,$db);
+		$this->query("SET NAMES UTF8");
+		if(!$this->connection) {
+			echo('No connection with database');
 		}
+		}
+		
+		return $this->connection;
 	}
-	$norm = new ClassName();
-	echo $norm->super();
- ?>
->>>>>>> 26d15d029c5f08677f1f50ecd20a3f66d9aba914
+	public function query($sql) {
+		if (!$this->connection) {
+			return FALSE; 
+		}
+		$result = $this->connection->query($sql);
+	
+	if ( is_bool($result) ){
+            return $result;
+        }
+
+        $data = array();
+        while( $row = mysqli_fetch_assoc($result) ){
+            $data[] = $row;
+        }
+
+        mysqli_free_result($result);
+
+        return $data;
+    }
+    
+    public function escape($str){
+        return mysqli_escape_string($this->connection, $str);
+    }
+}
+?>
