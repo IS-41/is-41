@@ -1,11 +1,21 @@
 <?php
 include 'config.php';
 	function __autoload($var) {
-		include $var.'.php';
+		include '/classes/'.$var.'.php';
 	}
 	
 	
+$TestPage = new OnePage('Работает!');
+echo $TestPage->test;
 
 
 ?>
-<h1>ghfhgf</h1>
+<!DOCTYPE testhtml>
+<html>
+<head>
+	<title>test</title>
+</head>
+<body>
+<h1>Hello world</h1>
+</body>
+</html>
