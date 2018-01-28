@@ -10,12 +10,3 @@ echo $TestPage->test;
 
 
 ?>
-<!DOCTYPE testhtml>
-<html>
-<head>
-	<title>test</title>
-</head>
-<body>
-<h1>Hello world</h1>
-</body>
-</html>
