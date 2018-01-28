@@ -5,7 +5,7 @@ include 'config.php';
 	}
 	
 $db = new db(HOST,USER,PASS,DB);
-print_r( $post = $db->query("SELECT * FROM user"));
+$post = $db->query("SELECT * FROM user");
 
 $TestPage = new OnePage('Работает!');
 echo $TestPage->test;
@@ -16,3 +16,25 @@ echo $user->get_all();
 
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<? if(isset($post)) : ?>
+		<? foreach ($post as $item) : ?>
+			<h2>
+				<p><?=$item['name'];?></p>
+			</h2>
+			<p>
+				<?=$item['surname'];?>
+			</p>
+			<p>
+				<?=$item['email'];?>
+			</p>
+		<? endforeach; ?>
+	<? endif; ?>
+</body>
+</html>
