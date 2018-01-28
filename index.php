@@ -5,7 +5,7 @@ include 'config.php';
 	}
 	
 $db = new db(HOST,USER,PASS,DB);
-echo $post = $db->query("SELECT * FROM user");
+print_r( $post = $db->query("SELECT * FROM user"));
 
 $TestPage = new OnePage('Работает!');
 echo $TestPage->test;
