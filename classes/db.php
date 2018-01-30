@@ -1,8 +1,9 @@
 
 <?php
+//класс БД
 class db {
  public $connection;
-
+//Подключение к БД
 	public function __construct($host,$user,$pass,$db) {
 		$this->connection = new mysqli($host,$user,$pass,$db);
 		$this->query("SET NAMES UTF8");
@@ -13,6 +14,7 @@ class db {
 		
 		return $this->connection;
 	}
+//Функция запроса
 	public function query($sql) {
 		if (!$this->connection) {
 			return FALSE; 
@@ -32,7 +34,7 @@ class db {
 
         return $data;
     }
-    
+//функция обработки строки запроса   
     public function escape($str){
         return mysqli_escape_string($this->connection, $str);
     }
