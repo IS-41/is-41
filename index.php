@@ -8,6 +8,12 @@ include 'config.php';
 		include '/classes/'.$var.'.php';
 	}
 //вывод юзера
+if($add) {
+$_SESSION['add'] = $add;
+header("Location: ".$_SERVER["PHP_SELF"]);
+exit;
+}
+
 $name=$_POST['name'];
 $surname=$_POST['surname'];
 $email=$_POST['email'];	
@@ -15,11 +21,6 @@ $db = new db(HOST,USER,PASS,DB);
 $post = $db->query("SELECT * FROM user");
 if(isset($_POST['add'])){
 $add = $db->query("INSERT INTO `user` (`id_user`,`name`,`surname`,`email`) VALUES (null,'".$name."','".$surname."','".$email."')");
-if($add) {
-$_SESSION['add'] = $add;
-header("Location: ".$_SERVER["PHP_SELF"]);
-exit;
-}
 
 }
 
