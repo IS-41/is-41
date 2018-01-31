@@ -25,17 +25,29 @@ $add = $db->query("INSERT INTO `user` (`id_user`,`name`,`surname`,`email`) VALUE
 }
 
 
-
-
-
-
-
 $TestPage = new OnePage('Работает!');
 echo $TestPage->test;
 
 $user = new Users();
 echo $user->get_all();
+//Шаблонизатор вроде как :D
+//-------------------------------------------------
+$page = new Page();
 
+	if (isset($_GET['id'])) {
+		$id = (int)$_GET['id'];
+		if (condition) {
+			$text = $page->get_one($id);
+			echo $page->get_body($text, 'view');
+			exit();
+		}else{
+			exit('wrong parameter');
+		}
+	}else{
+		$text = $page->get_all();
+		echo $page->get_body($text,'main');
+	}
+//-------------------------------------------------
 ?>
 
 <!DOCTYPE html>

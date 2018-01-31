@@ -38,5 +38,14 @@ class db {
     public function escape($str){
         return mysqli_escape_string($this->connection, $str);
     }
+    public function get_all_db(){
+            
+        }
+
+        public function get_one_db($id){
+
+         
+        }
 }
+
 ?>
