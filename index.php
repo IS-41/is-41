@@ -50,31 +50,3 @@ $page = new Page();
 //-------------------------------------------------
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<form method="POST">
-		<input type="text" name="name"><br>
-		<input type="text" name="surname"><br>
-		<input type="text" name="email"><br><br>
-		<input type="submit" name="add"><br>
-	</form>
-	<? if(isset($post)) : ?>
-		<? foreach ($post as $item) : ?>
-			<h2>
-				<p><?=$item['name'];?></p>
-			</h2>
-			<p>
-				<?=$item['surname'];?>
-			</p>
-			<p>
-				<?=$item['email'];?>
-			</p>
-		<? endforeach; ?>
-	<? endif; ?>
-</body>
-</html>

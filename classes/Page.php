@@ -19,7 +19,7 @@
     	
     	ob_start();
 
-    	include $file.'.php';
+    	include '/Template/default/'.$file.'.php.tpl';
 
     	return ob_get_clean();
     }
